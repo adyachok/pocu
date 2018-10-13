@@ -1,0 +1,10 @@
+<h2>Projects</h2>
+
+<mat-nav-list>
+  <a mat-list-item href="project/{{project.id}}" *ngFor="let project of projects">
+          <div style="width: 80%;">{{project.name}}</div>
+
+          <a href="project/{{project.id}}/clone" *ngIf="project.parent === undefined || project.parent === null"
+             mat-stroked-button>Clone</a>
+  </a>
+</mat-nav-list>

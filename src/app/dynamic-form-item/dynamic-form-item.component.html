@@ -1,0 +1,25 @@
+<div [formGroup]="form" style="margin-left: 3em;">
+  <label [attr.for]="item.key">{{item.label}}</label>
+
+  <div [ngSwitch]="item.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="item.key"
+           [id]="item.key" [type]="item.type">
+
+    <select [id]="item.key" *ngSwitchCase="'dropdown'" [formControlName]="item.key">
+      <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+    <div *ngSwitchCase="'textbox-constraint'" style="margin-left: 2em;">
+      <mat-form-field>
+        <input matInput placeholder="Mix" id="min" [type]="item.type" [value]="item.value.min">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Max"  id="max" [type]="item.type" [value]="item.value.max">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{item.label}} is required</div>
+</div>

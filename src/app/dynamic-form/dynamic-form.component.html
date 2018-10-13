@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+
+    <div *ngFor="let item of items" class="form-row">
+      <app-dynamic-form-item [item]="item" [form]="form"></app-dynamic-form-item>
+    </div>
+
+</form>
+
+

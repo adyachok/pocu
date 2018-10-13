@@ -1,0 +1,17 @@
+<h4>Project unit steps</h4>
+
+
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let step of unitSteps">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Unit step name
+      </mat-panel-title>
+      <mat-panel-description>
+        {{step.name}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <app-ds-model [dsModel]="dsModel" *ngFor="let dsModel of step.supportedModels"></app-ds-model>
+  </mat-expansion-panel>
+</mat-accordion>
